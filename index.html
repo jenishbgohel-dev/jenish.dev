@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jenish Gohel | Developer • Electronics & Computer Engineering</title>
+    <meta name="description"
+        content="Portfolio of Jenish Gohel, a passionate web developer specializing in clean, fast, and beautiful web experiences.">
+
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:title" content="Jenish Gohel | Portfolio">
+    <meta property="og:description"
+        content="Explore my projects and skills in web development, specializing in elegant solutions to complex problems.">
+    <meta property="og:image" content="preview.png">
+    <meta property="og:url" content="https://brahmpreet.vercel.app/">
+    <meta property="og:type" content="website">
+
+    <!-- Structured Metadata (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jenish Gohel",
+      "jobTitle": "Web Developer",
+      "url": "https://brahmpreet.vercel.app/",
+      "sameAs": [
+        "https://github.com/Brahmpreett",
+        "https://www.linkedin.com/in/brahmpreet-singh-5b2a5029a/"
+      ]
+    }
+    </script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // Replace "YOUR_PUBLIC_KEY" with your actual EmailJS Public Key
+            emailjs.init({
+                publicKey: "VpLGOSsSIQN26ucqH",
+            });
+        })();
+    </script>
+
+</head>
+
+<body>
+
+    <div id="cur"></div>
+    <div id="cur-dot"></div>
+    <div id="progress"></div>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- NAV -->
+    <nav>
+        <a href="#hero" class="logo">
+            <div class="logo-cube"></div>
+            Portfolio
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ════════ HERO ════════ -->
+    <section id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-content">
+            <div class="badge">
+                <div class="badge-dot"></div> Ready to work
+            </div>
+            <h1 class="hero-name">
+                <span>Hello, I'm</span>
+                <span class="line2">Jenish Gohel</span>
+            </h1>
+            <p class="hero-role"><span id="typed"></span></p>
+            <p class="hero-desc">
+                Like a Rubik's Cube, every complex problem has an elegant solution &mdash;
+                you just need the right moves. I build clean, fast, and beautiful web experiences.
+            </p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn-p btn-m">View Projects &rarr;</a>
+                <a href="#contact" class="btn-s btn-m">Get In Touch</a>
+            </div>
+        </div>
+
+        <!-- 3D Rubik's Cube -->
+        <div class="cube-wrapper" id="cubeWrapper">
+            <div class="cube-aura"></div>
+            <div class="cube-viewport">
+                <div id="cubeScene"></div>
+            </div>
+            <div class="cube-ui">
+                <div class="cube-status" id="cubeStatus">Initializing...</div>
+                <div class="cube-btns">
+                    <button class="cbtn btn-m" id="btnScramble">Scramble</button>
+                    <button class="cbtn cbtn-solve btn-m" id="btnSolve">Solve</button>
+                </div>
+                <div class="cube-hint">Drag to rotate &bull; buttons to scramble/solve</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="pips" style="background:var(--bg2)">
+        <div class="pip"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+    </div>
+
+    <!-- ════════ ABOUT ════════ -->
+    <section id="about">
+        <div class="sec-head up">
+            <h2 class="sec-title">The <span>Developer</span> Behind The Cube</h2>
+        </div>
+
+        <div class="about-container">
+            <div class="about-photo mobile-only up">
+                <img src="preview.png" alt="Jenish Gohel" loading="lazy">
+            </div>
+
+            <div class="about-stats-wrapper mobile-only up">
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-n" data-target="10">0</div>
+                        <div class="stat-l">Core Techs</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-n" data-target="15">0</div>
+                        <div class="stat-l">Projects</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-n" data-target="3">0</div>
+                        <div class="stat-l">Years Exp.</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-n" data-target="24.5" data-decimals="1">0</div>
+                        <div class="stat-l">Best Time</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-bio up">
+                <div class="about-text">
+                    <p>Just like a Rubik's Cube, complex problems have elegant solutions &mdash; you just need the right
+                        algorithm. I'm a passionate developer who turns intricate challenges into clean, functional
+                        code.
+                    </p>
+                    <p>With expertise in front-end development, scripting, and automation, I bring ideas to life across
+                        the
+                        full stack. Each project is a new puzzle, and I approach every one with curiosity and precision.
+                    </p>
+                    <p class="about-accent">"Any sufficiently complex problem, broken down step by step, becomes
+                        beautifully
+                        simple."</p>
+                </div>
+            </div>
+
+            <!-- Right Side: Photo + Stats (Desktop) -->
+            <div class="about-right-col desktop-only-flex up">
+                <div class="about-photo">
+                    <img src="web.jpeg" alt="Jenish Gohel" loading="lazy">
+                </div>
+                <div class="about-stats-wrapper">
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-n" data-target="10">0</div>
+                            <div class="stat-l">Core Techs</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-n" data-target="15">0</div>
+                            <div class="stat-l">Projects</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-n" data-target="3">0</div>
+                            <div class="stat-l">Years Exp.</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-n" data-target="24.5" data-decimals="1">0</div>
+                            <div class="stat-l">Best Time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="pips" style="background:var(--bg)">
+        <div class="pip"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+    </div>
+
+    <!-- ════════ SKILLS ════════ -->
+    <section id="skills">
+        <div class="sec-head">
+            <div class="sec-tag">02 &mdash; Skills</div>
+            <h2 class="sec-title">My <span>Tech Stack</span></h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card sk-html up">
+                <div class="sk-scene">
+                    <div class="sk-cube" style="animation-delay:-5.25s">
+                        <div class="sf f" style="background:var(--red)">&#127760;</div>
+                        <div class="sf b" style="background:var(--red)"></div>
+                        <div class="sf l" style="background:var(--red)"></div>
+                        <div class="sf r" style="background:var(--red)"></div>
+                        <div class="sf t" style="background:var(--red)"></div>
+                        <div class="sf d" style="background:var(--red)"></div>
+                    </div>
+                </div>
+                <div class="sk-name">Full Stack</div>
+                <div class="sk-desc">Frontend, backend &amp; scalable web applications</div>
+                <div class="bar-wrap">
+                    <div class="bar" data-w="100"></div>
+                </div>
+
+            </div>
+            <div class="skill-card sk-css up">
+                <div class="sk-scene">
+                    <div class="sk-cube" style="animation-delay:-3.5s">
+                        <div class="sf f" style="background:#0051A2">&#129302;</div>
+                        <div class="sf b" style="background:#003d7a"></div>
+                        <div class="sf l" style="background:#004489"></div>
+                        <div class="sf r" style="background:#003d7a"></div>
+                        <div class="sf t" style="background:#0066cc"></div>
+                        <div class="sf d" style="background:#002d5c"></div>
+                    </div>
+                </div>
+                <div class="sk-name">AI/ML</div>
+                <div class="sk-desc">Intelligent systems, models &amp; data-driven solutions</div>
+                <div class="bar-wrap">
+                    <div class="bar" data-w="100"></div>
+                </div>
+            </div>
+            <div class="skill-card sk-js up">
+                <div class="sk-scene">
+                    <div class="sk-cube" style="animation-delay:-1.75s">
+                        <div class="sf f" style="background:#FFD500">&#9729;</div>
+                        <div class="sf b" style="background:#ccaa00"></div>
+                        <div class="sf l" style="background:#dbb800"></div>
+                        <div class="sf r" style="background:#ccaa00"></div>
+                        <div class="sf t" style="background:#ffdf33"></div>
+                        <div class="sf d" style="background:#997e00"></div>
+                    </div>
+                </div>
+                <div class="sk-name">Cloud</div>
+                <div class="sk-desc">Deployment, infrastructure &amp; scalable services</div>
+                <div class="bar-wrap">
+                    <div class="bar" data-w="100"></div>
+                </div>
+            </div>
+            <div class="skill-card sk-py up">
+                <div class="sk-scene">
+                    <div class="sk-cube" style="animation-delay:0s">
+                        <div class="sf f" style="background:#009B48">&#128013;</div>
+                        <div class="sf b" style="background:#007336"></div>
+                        <div class="sf l" style="background:#00853e"></div>
+                        <div class="sf r" style="background:#007336"></div>
+                        <div class="sf t" style="background:#00b854"></div>
+                        <div class="sf d" style="background:#005c2b"></div>
+                    </div>
+                </div>
+                <div class="sk-name">Python</div>
+                <div class="sk-desc">Automation, scripting &amp; data analysis</div>
+                <div class="bar-wrap">
+                    <div class="bar" data-w="100"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="pips" style="background:var(--bg2)">
+        <div class="pip"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+    </div>
+
+    <!-- ════════ PROJECTS ════════ -->
+    <section id="projects">
+        <div class="sec-head">
+            <div class="sec-tag">03 &mdash; Projects</div>
+            <h2 class="sec-title">Featured <span>Work</span></h2>
+            <p class="sec-sub">Hover a card to reveal details</p>
+        </div>
+        <div class="projects-grid">
+            <div class="proj p1 up">
+                <div class="proj-inner">
+                    <div class="proj-f">
+                        <div class="proj-num">01 / 03</div>
+                        <div class="proj-ico"
+                            style="background-image: url('/C:/Users/Asus/.gemini/antigravity/brain/27dfebe1-757e-4d73-b059-d88e2f203946/potli_budget_app_1772912367902.png'); background-size: cover; border-radius: 12px; height: 120px; width: 100%; margin-bottom: 12px;">
+                        </div>
+                        <div class="proj-title">Potli</div>
+                        <div class="proj-tags"><span class="ptag"
+                                style="color:var(--yellow);border-color:var(--yellow)">Vercel</span><span class="ptag"
+                                style="color:var(--orange);border-color:var(--orange)">Budgeting</span></div>
+                    </div>
+                    <div class="proj-bk">
+                        <div class="proj-desc">Budget management website based on the Potli system. Tracking finances
+                            with Indian context.</div>
+                        <a href="https://potlis.vercel.app" class="proj-link" target="_blank">View Live &rarr;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="proj p2 up">
+                <div class="proj-inner">
+                    <div class="proj-f">
+                        <div class="proj-num">02 / 03</div>
+                        <div class="proj-ico"
+                            style="background-image: url('/C:/Users/Asus/.gemini/antigravity/brain/27dfebe1-757e-4d73-b059-d88e2f203946/shopsyra_ai_shopping_1772912386811.png'); background-size: cover; border-radius: 12px; height: 120px; width: 100%; margin-bottom: 12px;">
+                        </div>
+                        <div class="proj-title">Shopsyra</div>
+                        <div class="proj-tags"><span class="ptag"
+                                style="color:var(--blue);border-color:var(--blue)">AI</span><span class="ptag"
+                                style="color:var(--green);border-color:var(--green)">Shopping</span></div>
+                    </div>
+                    <div class="proj-bk">
+                        <div class="proj-desc">AI-powered chatbot for in-store product discovery and recommendations.
+                        </div>
+                        <a href="https://shopsyra.vercel.app" class="proj-link" target="_blank">View Live &rarr;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="proj p3 up">
+                <div class="proj-inner">
+                    <div class="proj-f">
+                        <div class="proj-num">03 / 03</div>
+                        <div class="proj-ico"
+                            style="background-image: url('/C:/Users/Asus/.gemini/antigravity/brain/27dfebe1-757e-4d73-b059-d88e2f203946/sorting_visualizer_tool_1772912403281.png'); background-size: cover; border-radius: 12px; height: 120px; width: 100%; margin-bottom: 12px;">
+                        </div>
+                        <div class="proj-title">Sorting Visualizer</div>
+                        <div class="proj-tags"><span class="ptag"
+                                style="color:var(--red);border-color:var(--red)">Algorithms</span><span class="ptag"
+                                style="color:var(--yellow);border-color:var(--yellow)">Front-End</span></div>
+                    </div>
+                    <div class="proj-bk">
+                        <div class="proj-desc">Real-time algorithm metrics: comparisons, swaps, and execution time.
+                        </div>
+                        <a href="https://brahmpreett.github.io/Sorting_Visualizer/" class="proj-link"
+                            target="_blank">View Demo &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="pips" style="background:var(--bg)">
+        <div class="pip"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+    </div>
+
+    <!-- ════════ CONTACT ════════ -->
+    <section id="contact">
+        <div class="sec-head">
+            <div class="sec-tag">04 &mdash; Contact</div>
+            <h2 class="sec-title">Let's <span>Connect</span></h2>
+            <p class="sec-sub">Have a project? Let's solve it together.</p>
+        </div>
+        <form id="contact-form" class="contact-box up">
+            <div class="f-row">
+                <div class="f-grp"><label>Your Name</label><input type="text" id="name" name="name"
+                        placeholder="John Doe" required>
+                </div>
+                <div class="f-grp"><label>Email Address</label><input type="email" id="email" name="email"
+                        placeholder="john@example.com" required>
+                </div>
+            </div>
+            <div class="f-grp"><label>Subject</label><input type="text" id="subject" name="subject"
+                    placeholder="What's this about?" required>
+            </div>
+            <div class="f-grp"><label>Message</label><textarea id="message" name="message"
+                    placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" id="submit-btn" class="f-btn btn-m">Send Message &#9992;</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/Brahmpreett" class="social-icon" target="_blank" aria-label="GitHub">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/brahmpreet-singh-5b2a5029a/" class="social-icon" target="_blank"
+                aria-label="LinkedIn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+            <a href="mailto:brahmpreetsarna@gmail.com" class="social-icon" aria-label="Email">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+            </a>
+        </div>
+        <p>Crafted with passion by <strong>Jenish Gohel</strong> &mdash; Solving one cube at a time.</p>
+        <p style="margin-top:8px;font-size:.8rem">&copy; 2025 All Rights Reserved</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
